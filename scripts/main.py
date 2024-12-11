@@ -8,6 +8,8 @@ from data.audio_processing import process_audio, get_audio_dataset
 from data.image_processing import process_faces, get_faces_dataset
 from transformers import AutoModel, AutoTokenizer, AutoFeatureExtractor, AutoImageProcessor, Wav2Vec2ForSequenceClassification
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 def parse_args():
     parser = argparse.ArgumentParser(description='MuSe 2024.')
     parser.add_argument('--task', type=str, required=True, choices=TASKS, help=f'Specify the task from {TASKS}.')
